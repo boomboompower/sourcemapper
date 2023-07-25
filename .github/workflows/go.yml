@@ -18,6 +18,7 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
         title: SourceMapper Build ${{ github.run_number }}
+        automatic_release_tag: latest
 
     - name: Set up Go
       uses: actions/setup-go@v4

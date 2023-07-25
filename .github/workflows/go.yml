@@ -17,8 +17,8 @@ jobs:
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
-        title: SourceMapper Build ${{ github.run_number }}
-        automatic_release_tag: latest
+        title: SourceMapper-${{ github.run_number }}
+        automatic_release_tag: SourceMapper-${{ github.run_number }}
 
     - name: Set up Go
       uses: actions/setup-go@v4
@@ -31,6 +31,6 @@ jobs:
     - uses: wangyoucao577/go-release-action@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        release_name: SourceMapper Build ${{ github.run_number }}
+        release_name: SourceMapper-${{ github.run_number }}
         goos: windows
         goarch: amd64

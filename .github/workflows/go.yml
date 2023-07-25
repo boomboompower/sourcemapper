@@ -13,18 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+    - uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        tag_name: ${{ github.run_number }}
-        release_name: SourceMapper Build ${{ github.run_number }}
-        body: |
-          SourceMapper binaries created by Github Actions
-        draft: false
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
+        title: SourceMapper Build ${{ github.run_number }}
 
     - name: Set up Go
       uses: actions/setup-go@v4
